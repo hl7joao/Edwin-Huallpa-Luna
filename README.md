@@ -1,2 +1,4 @@
 # Edwin-Huallpa-Luna
-Portfolio project CTD
+Portfolio project CT
+
+Edwin Huallpa
