@@ -1,4 +1,4 @@
 # Edwin-Huallpa-Luna
 Portfolio project CT
 
-Edwin Huallpa
+Edwin Huallpa Lujan
