@@ -1,0 +1,55 @@
+/* General page setup */
+body {
+  background-color: #f9f9f9;       /* light gray background */
+  color: #333;                     /* default text color */
+  font-family: 'Arial', sans-serif; /* font family */
+  margin: 20px;
+  line-height: 1.6;
+}
+
+/* Headings */
+h1 {
+  font-size: 2.5em;
+  font-weight: bold;
+  color: darkred;
+  text-align: center;              /* center your name */
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 30px;
+}
+
+h2 {
+  font-size: 1.8em;
+  color: #00509e;
+  margin-bottom: 10px;
+}
+
+/* Sections */
+section {
+  margin: 40px 0;
+  padding: 20px;
+  border: 2px solid #ccc;          /* borders help visualize sections */
+  border-radius: 8px;
+  background-color: #fff;
+}
+
+/* Experience list styled as blocks */
+#Experience li {
+  background: #e0f7fa;
+  margin: 8px 0;
+  padding: 10px;
+  border-radius: 6px;
+  font-weight: bold;
+}
+
+/* Connect links */
+#Connect a {
+  color: #00509e;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+#Connect a:hover {
+  color: #ff6600;
+  text-decoration: underline;
+}
