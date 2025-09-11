@@ -7,7 +7,17 @@
   <meta name="description" content="Edwin Huallpa's Portfolio for Code the Dream" />
   <link rel="stylesheet" href="css/index.css" />
 </head>
-<body> 
+<body>
+  <header>
+    <nav aria-label="Main">
+      <a href="#About">About</a>
+      <a href="#Experience">Experience</a>
+      <a href="#Skills">Skills</a>
+      <a href="#Projects">Projects</a>
+      <a href="#Connect">Connect</a>
+    </nav>
+  </header>
+
   <h1>Edwin Huallpa</h1>
 
   <section id="About">
@@ -18,20 +28,118 @@
 
   <section id="Experience">
     <h2>Experience</h2>
-    <ul>
-      <li>Data Structures and Algorithms</li>
-      <li>Dream Labs - STEM Learning Lead</li>
-    </ul>
+
+    <div class="experience-item">
+      <div class="experience-row">
+        <h3 class="exp-title">Cyber Range Lab Deployment & Training Platform — Illinois Tech ITM</h3>
+        <span class="exp-dates">May 2025 – Present</span>
+      </div>
+      <p class="exp-desc">
+        Built a virtual cybersecurity training platform for 25+ users using Proxmox (KVM), Terraform, MinIO, OAuth 2.0,
+        and VLAN-segmented networking with sticky session load balancing on university infrastructure.
+      </p>
+    </div>
+
+    <div class="experience-item">
+      <div class="experience-row">
+        <h3 class="exp-title">Ultrasonic Valve Health Monitoring — IIT College of Engineering R&amp;D</h3>
+        <span class="exp-dates">May 2025 – Present</span>
+      </div>
+      <p class="exp-desc">
+        Prototyped a low-cost IoT device (Arduino Nano + HC-SR04 + custom PCB) for radiator valve diagnostics; implemented
+        embedded C/C++ with state diagrams and real-time data acquisition across lab rigs.
+      </p>
+    </div>
+
+    <div class="experience-item">
+      <div class="experience-row">
+        <h3 class="exp-title">Autonomous Drone Fleet Telemetry & Storage — IIT College of Computing</h3>
+        <span class="exp-dates">May 2025 – Present</span>
+      </div>
+      <p class="exp-desc">
+        Researched distributed storage for drone telemetry using Raspberry Pi + OpenMediaVault; integrated real-time logging
+        of video/GPS/sensors and demoed analytics workflow for fleet coordination.
+      </p>
+    </div>
+
+    <div class="experience-item">
+      <div class="experience-row">
+        <h3 class="exp-title">IT Support Technician — Tech Repairs Inc., Joliet, IL</h3>
+        <span class="exp-dates">Mar 2024 – May 2024</span>
+      </div>
+      <p class="exp-desc">
+        Supported Windows/macOS/Linux; used Sysinternals and Disk Utility; collaborated with a 3-tech team and translated
+        complex fixes for non-technical users to maintain high CSAT.
+      </p>
+    </div>
+  </section>
+
+  <section id="Skills">
+    <h2>Skills</h2>
+
+    <div class="skill-block">
+      <h3>Professional</h3>
+      <ul class="chips">
+        <li>Communication</li><li>Teamwork</li><li>Problem-solving</li><li>Adaptability</li>
+        <li>Time Management</li><li>Leadership</li><li>Emotional Intelligence</li>
+      </ul>
+    </div>
+
+    <div class="skill-block">
+      <h3>Programming &amp; Development</h3>
+      <ul class="chips">
+        <li>Python</li><li>Java</li><li>JavaScript</li><li>RISC-V Assembly</li><li>HTML</li><li>SQL</li><li>MySQL</li>
+      </ul>
+    </div>
+
+    <div class="skill-block">
+      <h3>Tools &amp; Technologies</h3>
+      <ul class="chips">
+        <li>Git</li><li>VS Code</li><li>Firebase</li><li>Proxmox</li><li>Vault</li><li>Terraform</li>
+      </ul>
+    </div>
+
+    <div class="skill-block">
+      <h3>Awards &amp; Honors</h3>
+      <ul class="chips">
+        <li>Illinois State Seal of Biliteracy</li><li>Dean’s List</li>
+        <li>Hispanic/Latino STEAM Scholar</li><li>Excellence Student Scholar</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="Projects">
+    <h2>Projects</h2>
+    <div class="cards">
+      <article class="card">
+        <h3>Cyber Range Lab Platform</h3>
+        <p>Virtual cybersecurity training environment for 25+ users with Proxmox, Terraform, MinIO, OAuth 2.0, and VLAN segmentation.</p>
+        <ul class="tags"><li>Proxmox</li><li>Terraform</li><li>MinIO</li><li>OAuth 2.0</li></ul>
+      </article>
+
+      <article class="card">
+        <h3>Ultrasonic Valve Health Monitor</h3>
+        <p>Low-cost IoT device (Arduino + HC-SR04 + custom PCB) performing vibration analysis and embedded diagnostics in C/C++.</p>
+        <ul class="tags"><li>Arduino</li><li>Embedded C++</li><li>PCB</li></ul>
+      </article>
+
+      <article class="card">
+        <h3>Drone Fleet Telemetry & Storage</h3>
+        <p>Distributed telemetry storage with Raspberry Pi + OpenMediaVault; real-time logging for video/GPS/sensors and flight analytics.</p>
+        <ul class="tags"><li>Raspberry Pi</li><li>OMV</li><li>Telemetry</li></ul>
+      </article>
+    </div>
+
+    <!-- Empty UL kept for future JS (as your course requires) -->
+    <ul id="projects-list"></ul>
   </section>
 
   <section id="Connect">
     <h2>Connect with me!</h2>
-    <ul>
+    <ul class="connect-list">
       <li><a href="https://github.com/hl7joao" target="_blank">GitHub</a></li>
       <li><a href="https://www.linkedin.com/in/edwin-huallpa-346868281/" target="_blank">LinkedIn</a></li>
     </ul>
   </section>
-
 </body>
 </html>
-    
