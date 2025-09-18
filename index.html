@@ -1,37 +1,275 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Edwin Huallpa's Portfolio</title>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Edwin Huallpa's Portfolio for Code the Dream" />
-  <link rel="stylesheet" href="css/index.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="css/index.css">
 </head>
-<body> 
-  <h1>Edwin Huallpa</h1>
+<body>
+    <!-- Splash/Loader Screen -->
+    <div id="splash-screen" class="splash-screen">
+        <div class="terminal">
+            <div class="terminal-header">
+                <div class="terminal-buttons">
+                    <span class="terminal-btn red"></span>
+                    <span class="terminal-btn yellow"></span>
+                    <span class="terminal-btn green"></span>
+                </div>
+                <div class="terminal-title">boot_terminal</div>
+            </div>
+            <div class="terminal-content">
+                <p class="terminal-line">> Initializing system...</p>
+                <p class="terminal-line">> Loading portfolio assets...</p>
+                <p class="terminal-line">> Establishing secure connection...</p>
+                <p class="terminal-line">> Welcome to my portfolio!</p>
+                <p class="terminal-line">> Starting application...</p>
+            </div>
+        </div>
+    </div>
 
-  <section id="About">
-    <h2>About</h2>
-    <img src="images/me.jpg" alt="Photo of Edwin Huallpa" width="200">
-    <p>Hey, my name is Edwin Huallpa 🇵🇪. I'm currently pursuing my bachelor's in computer science at Illinois Tech!</p>
-  </section>
+    <!-- Main Content -->
+    <div id="main-content" class="main-content hidden">
+        <!-- Navigation Header -->
+        <header class="sticky-header">
+            <nav class="nav-container">
+                <ul class="nav-list">
+                    <li><a href="#about" class="nav-link">About</a></li>
+                    <li><a href="#experience" class="nav-link">Experience</a></li>
+                    <li><a href="#skills" class="nav-link">Skills</a></li>
+                    <li><a href="#projects" class="nav-link">Projects</a></li>
+                    <li><a href="#connect" class="nav-link">Connect</a></li>
+                </ul>
+            </nav>
+        </header>
 
-  <section id="Experience">
-    <h2>Experience</h2>
-    <ul>
-      <li>Data Structures and Algorithms</li>
-      <li>Dream Labs - STEM Learning Lead</li>
-    </ul>
-  </section>
+        <!-- Hero Section -->
+        <section id="hero" class="hero">
+            <div class="hero-content">
+                <img src="images/me.jpg" alt="Profile Photo" class="profile-img">
+                <h1 class="hero-title">hi, I am <span class="highlight">Edwin!</span></h1>
+                <p class="hero-subtitle">Full Stack Developer & UI/UX Enthusiast</p>
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn btn-primary">View My Work</a>
+                    <a href="#" class="btn btn-secondary">View Resume</a>
+                </div>
+            </div>
+        </section>
 
-  <section id="Connect">
-    <h2>Connect with me!</h2>
-    <ul>
-      <li><a href="https://github.com/hl7joao" target="_blank">GitHub</a></li>
-      <li><a href="https://www.linkedin.com/in/edwin-huallpa-346868281/" target="_blank">LinkedIn</a></li>
-    </ul>
-  </section>
+        <!-- About Section -->
+        <section id="About" class="card-section reveal-on-scroll reveal-left">
+            <h2>About Me</h2>
+            <div class="about-grid">
+                <div class="about-left">
+                    <p>I’m Edwin Huallpa — a builder who loves turning ideas into useful, secure systems. I sit at the intersection of software, cybersecurity, and human-centered design.</p>
+                <p> I enjoy fast-paced, collaborative work where I can prototype, iterate, and ship. When I’m not coding, I’m testing new tools, mentoring, or sketching the next project.</p>
+            </div>
 
+        <!-- Right: interactive capability pills -->
+            <div class="about-right">
+        
+        <!-- Pill 1 -->
+        <button class="about-pill" type="button">
+            <span class="pill-icon">❯</span>
+            <span class="pill-title">Python &amp; ML</span>
+            <span class="pill-desc">
+                NumPy; data pipelines &amp; model prototyping.
+            </span>
+        </button>
+
+        <!-- Pill 2 -->
+        <button class="about-pill" type="button">
+            <span class="pill-icon">🧠</span>
+            <span class="pill-title">AI / Computer Vision</span>
+            <span class="pill-desc">
+              Classical CV + CNNs.
+            </span>
+        </button>
+
+        <!-- Pill 3 -->
+        <button class="about-pill" type="button">
+            <span class="pill-icon">⚡</span>
+            <span class="pill-title">Data Analytics</span>
+            <span class="pill-desc">
+              SQL, dashboards.
+            </span>
+          </button>
+        </div>
+      </div>
+    </section>
+                  
+
+        <!-- Experience Section -->
+        <section id="experience" class="section experience">
+            <h2 class="section-title">Experience</h2>
+            <div class="experience-container">
+                <div class="job-item">
+                    <div class="job-header">
+                        <h3 class="job-title">IT Support Technician</h3>
+                        <span class="job-date">2022 - Present</span>
+                    </div>
+                    <ul class="job-description">
+                        <li>Diagnosed and resolved technical issues across Windows, macOS, and Linux environments </li>
+                        <li>Managed technical inquiries, timely issue resolution, and clear communication </li>
+                        <li>Provided technical and customer assistance to non-technical users with high customer</li>
+                    </ul>
+                </div>
+                
+                <div class="job-item">
+                    <div class="job-header">
+                        <h3 class="job-title">Full Stack Developer</h3>
+                        <span class="job-date">2020 - 2022</span>
+                    </div>
+                    <ul class="job-description">
+                        <li>Developed full-stack applications using React, Node.js, and MongoDB</li>
+                        <li>Collaborated with UX designers to implement pixel-perfect interfaces</li>
+                        <li>Optimized database queries improving application performance by 35%</li>
+                    </ul>
+                </div>
+                
+                <div class="job-item">
+                    <div class="job-header">
+                        <h3 class="job-title">Web Developer</h3>
+                        <span class="job-date">2018 - 2020</span>
+                    </div>
+                    <ul class="job-description">
+                        <li>Built and maintained client websites using HTML, CSS, and JavaScript</li>
+                        <li>Implemented responsive designs for mobile and desktop platforms</li>
+                        <li>Integrated third-party APIs and payment processing systems</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="section skills">
+            <h2 class="section-title">Skills & Expertise</h2>
+            <div class="skills-container">
+                <div class="skills-column">
+                    <h3 class="skills-category">Programming & Development</h3>
+                    <div class="skills-tags">
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">TypeScript</span>
+                        <span class="skill-tag">React</span>
+                        <span class="skill-tag">Node.js</span>
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">HTML/CSS</span>
+                    </div>
+                </div>
+                
+                <div class="skills-column">
+                    <h3 class="skills-category">Tools & Technologies</h3>
+                    <div class="skills-tags">
+                        <span class="skill-tag">Git</span>
+                        <span class="skill-tag">Docker</span>
+                        <span class="skill-tag">AWS</span>
+                        <span class="skill-tag">MongoDB</span>
+                        <span class="skill-tag">PostgreSQL</span>
+                        <span class="skill-tag">Webpack</span>
+                    </div>
+                </div>
+                
+                <div class="skills-column">
+                    <h3 class="skills-category">Professional Skills</h3>
+                    <div class="skills-tags">
+                        <span class="skill-tag">Agile Methodology</span>
+                        <span class="skill-tag">UI/UX Design</span>
+                        <span class="skill-tag">Project Management</span>
+                        <span class="skill-tag">Technical Writing</span>
+                        <span class="skill-tag">Team Leadership</span>
+                        <span class="skill-tag">Problem Solving</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="section projects">
+            <h2 class="section-title">Featured Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://via.placeholder.com/300x200" alt="Project 1">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Cyber Range Lab Deployment & Training Platform</h3>
+                        <p class="project-description">A full-featured online shopping platform with payment processing and inventory management.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">React</span>
+                            <span class="project-tag">Node.js</span>
+                            <span class="project-tag">MongoDB</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://via.placeholder.com/300x200" alt="Project 2">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Task Management App</h3>
+                        <p class="project-description">A collaborative task management application with real-time updates and team features.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Vue.js</span>
+                            <span class="project-tag">Firebase</span>
+                            <span class="project-tag">CSS</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://via.placeholder.com/300x200" alt="Project 3">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Weather Dashboard</h3>
+                        <p class="project-description">An interactive weather application with forecasting and location-based services.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">JavaScript</span>
+                            <span class="project-tag">API</span>
+                            <span class="project-tag">Chart.js</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://via.placeholder.com/300x200" alt="Project 4">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Fitness Tracker</h3>
+                        <p class="project-description">A mobile-friendly fitness application with workout planning and progress tracking.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">React Native</span>
+                            <span class="project-tag">GraphQL</span>
+                            <span class="project-tag">MySQL</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Connect Section -->
+        <section id="connect" class="section connect">
+            <h2 class="section-title">Let's Connect</h2>
+            <div class="connect-content">
+                <p>I'm always interested in new opportunities, collaborations, or just a friendly chat about technology.</p>
+                <div class="connect-buttons">
+                    <a href="https://github.com" class="connect-btn github">GitHub</a>
+                    <a href="https://linkedin.com" class="connect-btn linkedin">LinkedIn</a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Project Modal -->
+    <div id="project-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div id="modal-body"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
-    
