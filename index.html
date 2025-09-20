@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css/index.css">
 </head>
 <body>
@@ -57,46 +58,40 @@
         </section>
 
         <!-- About Section -->
-        <section id="About" class="card-section reveal-on-scroll reveal-left">
-            <h2>About Me</h2>
-            <div class="about-grid">
-                <div class="about-left">
-                    <p>I’m Edwin Huallpa — a builder who loves turning ideas into useful, secure systems. I sit at the intersection of software, cybersecurity, and human-centered design.</p>
-                <p> I enjoy fast-paced, collaborative work where I can prototype, iterate, and ship. When I’m not coding, I’m testing new tools, mentoring, or sketching the next project.</p>
+        <section id="about">
+            <div class="container">
+                <h2>About Me</h2>
+                <div class="about-grid">
+                    <div class="about-left">
+                        <p>I am Edwin, a builder and problem solver fueled by data, AI, and curiosity. I work at the intersection of analysis, automation, and innovation, turning raw datasets into tools, insights, and intelligent systems that drive results.</p>
+                        <p>From building dashboards and training machine learning models to crafting AI-powered user experiences, I focus on creating work that is both functional and thoughtful. I thrive in fast-paced, collaborative environments and often bridge the gap between data, design, and decision-making.</p>
+                        <p>I am especially drawn to the challenge of building from scratch. My work blends technical skills with a strong sense of purpose, whether I am optimizing a product, automating a workflow, or rethinking a system entirely.</p>
+                    </div>
+                    <div class="about-right">
+                        <div class="about-pill">
+                            <span class="pill-icon"><i class="fas fa-brain"></i></span>
+                            <span class="pill-title">AI/Computer Vision</span>
+                            <span class="pill-desc">Advanced neural networks and image processing</span>
+                        </div>
+                        <div class="about-pill">
+                            <span class="pill-icon"><i class="fas fa-chart-line"></i></span>
+                            <span class="pill-title">Data Analytics Pro</span>
+                            <span class="pill-desc">Transforming data into actionable insights</span>
+                        </div>
+                        <div class="about-pill">
+                            <span class="pill-icon"><i class="fas fa-robot"></i></span>
+                            <span class="pill-title">Machine Learning</span>
+                            <span class="pill-desc">Building predictive models and intelligent systems</span>
+                        </div>
+                        <div class="about-pill">
+                            <span class="pill-icon"><i class="fas fa-code"></i></span>
+                            <span class="pill-title">Full-Stack Development</span>
+                            <span class="pill-desc">Creating end-to-end data-driven applications</span>
+                        </div>
+                    </div>
+                </div>
             </div>
-
-        <!-- Right: interactive capability pills -->
-            <div class="about-right">
-        
-        <!-- Pill 1 -->
-        <button class="about-pill" type="button">
-            <span class="pill-icon">❯</span>
-            <span class="pill-title">Python &amp; ML</span>
-            <span class="pill-desc">
-                NumPy; data pipelines &amp; model prototyping.
-            </span>
-        </button>
-
-        <!-- Pill 2 -->
-        <button class="about-pill" type="button">
-            <span class="pill-icon">🧠</span>
-            <span class="pill-title">AI / Computer Vision</span>
-            <span class="pill-desc">
-              Classical CV + CNNs.
-            </span>
-        </button>
-
-        <!-- Pill 3 -->
-        <button class="about-pill" type="button">
-            <span class="pill-icon">⚡</span>
-            <span class="pill-title">Data Analytics</span>
-            <span class="pill-desc">
-              SQL, dashboards.
-            </span>
-          </button>
-        </div>
-      </div>
-    </section>
+        </section>
                   
 
         <!-- Experience Section -->
@@ -251,16 +246,58 @@
 
         <!-- Connect Section -->
         <section id="connect" class="section connect">
-            <h2 class="section-title">Let's Connect</h2>
-            <div class="connect-content">
-                <p>I'm always interested in new opportunities, collaborations, or just a friendly chat about technology.</p>
-                <div class="connect-buttons">
-                    <a href="https://github.com" class="connect-btn github">GitHub</a>
-                    <a href="https://linkedin.com" class="connect-btn linkedin">LinkedIn</a>
+    <h2 class="section-title">Connect</h2>
+    <div class="connect-grid">
+        <div class="connect-left">
+            <h3>Let's Connect</h3>
+            <p>I'm always interested in new opportunities, collaborations, and interesting projects. Whether you want to discuss data science, AI, or just say hello, I'd love to hear from you.</p>
+            
+            <div class="contact-info">
+                <!-- LinkedIn -->
+                <div class="contact-item" onclick="window.open('https://www.linkedin.com/in/edwin-huallpa-346868281/', '_blank')">
+                    <div class="contact-icon">
+                        <i class="fab fa-linkedin"></i>
+                    </div>
+                    <span class="contact-label">Edwin Huallpa</span>
+                </div>
+                
+                <!-- GitHub -->
+                <div class="contact-item" onclick="window.open('https://github.com/hl7joao', '_blank')">
+                    <div class="contact-icon">
+                        <i class="fab fa-github"></i>
+                    </div>
+                    <span class="contact-label">hl7joao</span>
+                </div>
+                
+                <!-- Email -->
+                <div class="contact-item" onclick="window.location.href='mailto:hl7joao@gmail.com'">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <span class="contact-label">hl7joao@gmail.com</span>
+                </div>
+            </div>
+        </div>
+                
+                <div class="connect-right">
+                    <div class="form-container">
+                        <h3>Connect With Me</h3>
+                        <form class="contact-form">
+                            <div class="form-group">
+                                <input type="text" id="name" placeholder="Your Name" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" id="email" placeholder="Your Email" required>
+                            </div>
+                            <div class="form-group">
+                                <textarea id="message" rows="4" placeholder="Your Message" required></textarea>
+                            </div>
+                            <button type="submit" class="submit-btn">Send Message</button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </section>
-    </div>
 
     <!-- Project Modal -->
     <div id="project-modal" class="modal">
