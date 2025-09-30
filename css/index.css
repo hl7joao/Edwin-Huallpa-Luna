@@ -10,6 +10,12 @@
     --orange: #ff6a00;
     --purple: #7c3aed;
     --transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+
+    /* Added to support existing refs in your CSS */
+    --ink: #e5e7eb;        /* light text */
+    --border: #1f2937;     /* subtle borders */
+    --primary: #7c3aed;    /* purple accent */
+    --accent: #ff6a00;     /* orange accent */
 }
 
 * {
@@ -1089,4 +1095,34 @@ body {
     .modal-content {
         padding: 20px;
     }
+}
+
+/* ===== Assignment additions ===== */
+
+/* JS-generated Skills list (ul under the Skills heading) */
+#skills-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1rem 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+#skills-list li {
+    padding: 0.4rem 0.7rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    background: rgba(255,255,255,0.02);
+}
+
+/* Footer created by JS */
+footer {
+    margin-top: 2rem;
+    padding: 1rem 0;
+    border-top: 1px solid #1f2937;
+    text-align: center;
+    font-size: 0.9rem;
+    color: #cbd5e1;
 }

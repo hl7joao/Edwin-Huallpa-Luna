@@ -1,3 +1,5 @@
+// script.js
+
 // Wait for DOM to load
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize the splash screen
@@ -115,11 +117,10 @@ function initializeProjectModals() {
     });
     
     // Close modal when clicking outside the content
-    modal.addEventListener('click', (e) => {
-        if (e.target === modal) {
-            closeModalWindow();
-        }
-    });
+    const handleBackdropClick = (e) => {
+        if (e.target === modal) closeModalWindow();
+    };
+    modal.addEventListener('click', handleBackdropClick);
     
     // Close modal with Escape key
     document.addEventListener('keydown', (e) => {
@@ -201,7 +202,7 @@ function initializeScrollAnimations() {
     
     // Observe experience items with staggered animation
     const experienceItems = document.querySelectorAll('.job-item');
-    experienceItems.forEach((item, index) => {
+    experienceItems.forEach((item) => {
         item.classList.add('hidden-section');
         observer.observe(item);
     });
