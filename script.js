@@ -13,6 +13,12 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Initialize scroll animations
     initializeScrollAnimations();
+
+    // Build footer (from previous assignment)
+    buildFooter();
+
+    // Setup message form behavior (this assignment)
+    initMessageForm();
 });
 
 // Splash screen functionality
@@ -40,11 +46,11 @@ function initializeSmoothScrolling() {
     
     navLinks.forEach(link => {
         link.addEventListener('click', function(e) {
-            e.preventDefault();
-            
             const targetId = this.getAttribute('href');
-            if (targetId === '#') return;
-            
+            if (!targetId || targetId === '#') return;
+            const isHash = targetId.startsWith('#');
+            if (isHash) e.preventDefault();
+
             const targetSection = document.querySelector(targetId);
             if (targetSection) {
                 const headerHeight = document.querySelector('.sticky-header').offsetHeight;
@@ -54,9 +60,11 @@ function initializeSmoothScrolling() {
                     top: targetPosition,
                     behavior: 'smooth'
                 });
-                
-                // Update URL hash without scrolling
-                history.pushState(null, null, targetId);
+
+                if (isHash) {
+                    // Update URL hash without jumping
+                    history.pushState(null, null, targetId);
+                }
             }
         });
     });
@@ -213,5 +221,78 @@ function initializeScrollAnimations() {
         card.style.transitionDelay = `${index * 0.1}s`;
         card.classList.add('hidden-section');
         observer.observe(card);
+    });
+}
+
+// ----- From prior assignment: footer & skills list helpers -----
+function buildFooter() {
+    let footer = document.querySelector('footer');
+    if (!footer) {
+        footer = document.createElement('footer');
+        document.body.appendChild(footer);
+    }
+
+    const today = new Date();
+    const thisYear = today.getFullYear();
+    footer.innerHTML = `<p>&copy; Edwin Huallpa ${thisYear}</p>`;
+}
+
+// ===== New: Message form behavior =====
+function initMessageForm() {
+    // Select the form by name attribute
+    const messageForm = document.querySelector('form[name="leave_message"]');
+    if (!messageForm) return;
+
+    // Optional stretch: hide messages section when empty
+    const messageSection = document.getElementById('messages');
+    const messageList = messageSection ? messageSection.querySelector('ul') : null;
+
+    const toggleMessagesVisibility = () => {
+        if (!messageSection || !messageList) return;
+        const hasItems = messageList.children.length > 0;
+        messageSection.style.display = hasItems ? '' : 'none';
+    };
+
+    // Hide initially if empty
+    toggleMessagesVisibility();
+
+    messageForm.addEventListener('submit', function (event) {
+        // Prevent page refresh
+        event.preventDefault();
+
+        // Grab values from the form
+        const usersName = event.target.usersName.value.trim();
+        const usersEmail = event.target.usersEmail.value.trim();
+        const usersMessage = event.target.usersMessage.value.trim();
+
+        // Log values for the assignment step
+        console.log({ usersName, usersEmail, usersMessage });
+
+        // Display in the messages list
+        if (messageSection && messageList) {
+            const newMessage = document.createElement('li');
+
+            newMessage.innerHTML = `
+                <a href="mailto:${usersEmail}">${usersName}</a>
+                <span> — ${usersMessage}</span>
+            `;
+
+            // Remove button
+            const removeButton = document.createElement('button');
+            removeButton.type = 'button';
+            removeButton.textContent = 'remove';
+            removeButton.addEventListener('click', function () {
+                const entry = this.parentNode; // li
+                entry.remove();
+                toggleMessagesVisibility();
+            });
+
+            newMessage.appendChild(removeButton);
+            messageList.appendChild(newMessage);
+            toggleMessagesVisibility();
+        }
+
+        // Clear the form
+        event.target.reset();
     });
 }
