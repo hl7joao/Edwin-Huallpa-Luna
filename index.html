@@ -1,317 +1,300 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="css/index.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Portfolio</title>
+
+  <!-- Icons + CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <link rel="stylesheet" href="css/index.css"/>
 </head>
 <body>
-    <!-- Splash/Loader Screen -->
-    <div id="splash-screen" class="splash-screen">
-        <div class="terminal">
-            <div class="terminal-header">
-                <div class="terminal-buttons">
-                    <span class="terminal-btn red"></span>
-                    <span class="terminal-btn yellow"></span>
-                    <span class="terminal-btn green"></span>
-                </div>
-                <div class="terminal-title">boot_terminal</div>
-            </div>
-            <div class="terminal-content">
-                <p class="terminal-line">> Initializing system...</p>
-                <p class="terminal-line">> Loading portfolio assets...</p>
-                <p class="terminal-line">> Establishing secure connection...</p>
-                <p class="terminal-line">> Welcome to my portfolio!</p>
-                <p class="terminal-line">> Starting application...</p>
-            </div>
+  <!-- Main Content -->
+  <div id="main-content" class="main-content">
+    <!-- Navigation Header -->
+    <header class="sticky-header">
+      <nav class="nav-container">
+        <ul class="nav-list">
+          <li><a href="#about" class="nav-link">About</a></li>
+          <li><a href="#experience" class="nav-link">Experience</a></li>
+          <li><a href="#skills" class="nav-link">Skills</a></li>
+          <li><a href="#projects" class="nav-link">Projects</a></li>
+          <li><a href="#connect" class="nav-link">Connect</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero">
+      <div class="hero-content">
+        <!-- FIXED: use a clean relative path (case-sensitive) -->
+        <img
+          src="images/me.jpg"
+          alt="Portrait of Edwin"
+          class="profile-img"
+          width="200"
+          height="200"
+          loading="eager"
+          onerror="this.onerror=null; this.src='https://via.placeholder.com/200';"
+        />
+        <h1 class="hero-title">hi, I am <span class="highlight">Edwin!</span></h1>
+        <p class="hero-subtitle">Full Stack Developer & UI/UX Enthusiast</p>
+        <div class="hero-buttons">
+          <a href="#projects" class="btn btn-primary">View My Work</a>
+          <a href="#" class="btn btn-secondary">View Resume</a>
         </div>
-    </div>
+      </div>
+    </section>
 
-    <!-- Main Content -->
-    <div id="main-content" class="main-content hidden">
-        <!-- Navigation Header -->
-        <header class="sticky-header">
-            <nav class="nav-container">
-                <ul class="nav-list">
-                    <li><a href="#about" class="nav-link">About</a></li>
-                    <li><a href="#experience" class="nav-link">Experience</a></li>
-                    <li><a href="#skills" class="nav-link">Skills</a></li>
-                    <li><a href="#projects" class="nav-link">Projects</a></li>
-                    <li><a href="#connect" class="nav-link">Connect</a></li>
-                </ul>
-            </nav>
-        </header>
-
-        <!-- Hero Section -->
-        <section id="hero" class="hero">
-            <div class="hero-content">
-                <img src="images/me.jpg" alt="Profile Photo" class="profile-img">
-                <h1 class="hero-title">hi, I am <span class="highlight">Edwin!</span></h1>
-                <p class="hero-subtitle">Full Stack Developer & UI/UX Enthusiast</p>
-                <div class="hero-buttons">
-                    <a href="#projects" class="btn btn-primary">View My Work</a>
-                    <a href="#" class="btn btn-secondary">View Resume</a>
-                </div>
+    <!-- About Section -->
+    <section id="about">
+      <div class="container">
+        <h2>About Me</h2>
+        <div class="about-grid">
+          <div class="about-left">
+            <p>I am Edwin, a builder and problem solver fueled by data, AI, and curiosity. I work at the intersection of analysis, automation, and innovation, turning raw datasets into tools, insights, and intelligent systems that drive results.</p>
+            <p>From building dashboards and training machine learning models to crafting AI-powered user experiences, I focus on creating work that is both functional and thoughtful. I thrive in fast-paced, collaborative environments and often bridge the gap between data, design, and decision-making.</p>
+            <p>I am especially drawn to the challenge of building from scratch. My work blends technical skills with a strong sense of purpose, whether I am optimizing a product, automating a workflow, or rethinking a system entirely.</p>
+          </div>
+          <div class="about-right">
+            <div class="about-pill">
+              <span class="pill-icon"><i class="fas fa-brain"></i></span>
+              <span class="pill-title">AI/Computer Vision</span>
+              <span class="pill-desc">Advanced neural networks and image processing</span>
             </div>
-        </section>
-
-        <!-- About Section -->
-        <section id="about">
-            <div class="container">
-                <h2>About Me</h2>
-                <div class="about-grid">
-                    <div class="about-left">
-                        <p>I am Edwin, a builder and problem solver fueled by data, AI, and curiosity. I work at the intersection of analysis, automation, and innovation, turning raw datasets into tools, insights, and intelligent systems that drive results.</p>
-                        <p>From building dashboards and training machine learning models to crafting AI-powered user experiences, I focus on creating work that is both functional and thoughtful. I thrive in fast-paced, collaborative environments and often bridge the gap between data, design, and decision-making.</p>
-                        <p>I am especially drawn to the challenge of building from scratch. My work blends technical skills with a strong sense of purpose, whether I am optimizing a product, automating a workflow, or rethinking a system entirely.</p>
-                    </div>
-                    <div class="about-right">
-                        <div class="about-pill">
-                            <span class="pill-icon"><i class="fas fa-brain"></i></span>
-                            <span class="pill-title">AI/Computer Vision</span>
-                            <span class="pill-desc">Advanced neural networks and image processing</span>
-                        </div>
-                        <div class="about-pill">
-                            <span class="pill-icon"><i class="fas fa-chart-line"></i></span>
-                            <span class="pill-title">Data Analytics Pro</span>
-                            <span class="pill-desc">Transforming data into actionable insights</span>
-                        </div>
-                        <div class="about-pill">
-                            <span class="pill-icon"><i class="fas fa-robot"></i></span>
-                            <span class="pill-title">Machine Learning</span>
-                            <span class="pill-desc">Building predictive models and intelligent systems</span>
-                        </div>
-                        <div class="about-pill">
-                            <span class="pill-icon"><i class="fas fa-code"></i></span>
-                            <span class="pill-title">Full-Stack Development</span>
-                            <span class="pill-desc">Creating end-to-end data-driven applications</span>
-                        </div>
-                    </div>
-                </div>
+            <div class="about-pill">
+              <span class="pill-icon"><i class="fas fa-chart-line"></i></span>
+              <span class="pill-title">Data Analytics Pro</span>
+              <span class="pill-desc">Transforming data into actionable insights</span>
             </div>
-        </section>
-                  
-        <!-- Experience Section -->
-        <section id="experience" class="section experience">
-            <h2 class="section-title">Experience</h2>
-            <div class="experience-container">
-                <div class="job-item">
-                    <div class="job-header">
-                        <h3 class="job-title">IT Support Technician</h3>
-                        <span class="job-date">2022 - Present</span>
-                    </div>
-                    <ul class="job-description">
-                        <li>Diagnosed and resolved technical issues across Windows, macOS, and Linux environments </li>
-                        <li>Managed technical inquiries, timely issue resolution, and clear communication </li>
-                        <li>Provided technical and customer assistance to non-technical users with high customer</li>
-                    </ul>
-                </div>
-                
-                <div class="job-item">
-                    <div class="job-header">
-                        <h3 class="job-title">Full Stack Developer</h3>
-                        <span class="job-date">2020 - 2022</span>
-                    </div>
-                    <ul class="job-description">
-                        <li>Developed full-stack applications using React, Node.js, and MongoDB</li>
-                        <li>Collaborated with UX designers to implement pixel-perfect interfaces</li>
-                        <li>Optimized database queries improving application performance by 35%</li>
-                    </ul>
-                </div>
-                
-                <div class="job-item">
-                    <div class="job-header">
-                        <h3 class="job-title">Web Developer</h3>
-                        <span class="job-date">2018 - 2020</span>
-                    </div>
-                    <ul class="job-description">
-                        <li>Built and maintained client websites using HTML, CSS, and JavaScript</li>
-                        <li>Implemented responsive designs for mobile and desktop platforms</li>
-                        <li>Integrated third-party APIs and payment processing systems</li>
-                    </ul>
-                </div>
+            <div class="about-pill">
+              <span class="pill-icon"><i class="fas fa-robot"></i></span>
+              <span class="pill-title">Machine Learning</span>
+              <span class="pill-desc">Building predictive models and intelligent systems</span>
             </div>
-        </section>
-
-        <!-- Skills Section -->
-        <section id="skills" class="section skills">
-            <h2 class="section-title">Skills & Expertise</h2>
-
-            <!-- Added for the assignment: JS will populate this list -->
-            <ul id="skills-list"></ul>
-
-            <div class="skills-container">
-                <div class="skills-column">
-                    <h3 class="skills-category">Programming & Development</h3>
-                    <div class="skills-tags">
-                        <span class="skill-tag">JavaScript</span>
-                        <span class="skill-tag">TypeScript</span>
-                        <span class="skill-tag">React</span>
-                        <span class="skill-tag">Node.js</span>
-                        <span class="skill-tag">Python</span>
-                        <span class="skill-tag">HTML/CSS</span>
-                    </div>
-                </div>
-                
-                <div class="skills-column">
-                    <h3 class="skills-category">Tools & Technologies</h3>
-                    <div class="skills-tags">
-                        <span class="skill-tag">Git</span>
-                        <span class="skill-tag">Docker</span>
-                        <span class="skill-tag">AWS</span>
-                        <span class="skill-tag">MongoDB</span>
-                        <span class="skill-tag">PostgreSQL</span>
-                        <span class="skill-tag">Webpack</span>
-                    </div>
-                </div>
-                
-                <div class="skills-column">
-                    <h3 class="skills-category">Professional Skills</h3>
-                    <div class="skills-tags">
-                        <span class="skill-tag">Agile Methodology</span>
-                        <span class="skill-tag">UI/UX Design</span>
-                        <span class="skill-tag">Project Management</span>
-                        <span class="skill-tag">Technical Writing</span>
-                        <span class="skill-tag">Team Leadership</span>
-                        <span class="skill-tag">Problem Solving</span>
-                    </div>
-                </div>
+            <div class="about-pill">
+              <span class="pill-icon"><i class="fas fa-code"></i></span>
+              <span class="pill-title">Full-Stack Development</span>
+              <span class="pill-desc">Creating end-to-end data-driven applications</span>
             </div>
-        </section>
+          </div>
+        </div>
+      </div>
+    </section>
 
-        <!-- Projects Section -->
-        <section id="projects" class="section projects">
-            <h2 class="section-title">Featured Projects</h2>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="https://via.placeholder.com/300x200" alt="Project 1">
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">Cyber Range Lab Deployment & Training Platform</h3>
-                        <p class="project-description">A full-featured online shopping platform with payment processing and inventory management.</p>
-                        <div class="project-tags">
-                            <span class="project-tag">React</span>
-                            <span class="project-tag">Node.js</span>
-                            <span class="project-tag">MongoDB</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="https://via.placeholder.com/300x200" alt="Project 2">
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">Task Management App</h3>
-                        <p class="project-description">A collaborative task management application with real-time updates and team features.</p>
-                        <div class="project-tags">
-                            <span class="project-tag">Vue.js</span>
-                            <span class="project-tag">Firebase</span>
-                            <span class="project-tag">CSS</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="https://via.placeholder.com/300x200" alt="Project 3">
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">Weather Dashboard</h3>
-                        <p class="project-description">An interactive weather application with forecasting and location-based services.</p>
-                        <div class="project-tags">
-                            <span class="project-tag">JavaScript</span>
-                            <span class="project-tag">API</span>
-                            <span class="project-tag">Chart.js</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="https://via.placeholder.com/300x200" alt="Project 4">
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">Fitness Tracker</h3>
-                        <p class="project-description">A mobile-friendly fitness application with workout planning and progress tracking.</p>
-                        <div class="project-tags">
-                            <span class="project-tag">React Native</span>
-                            <span class="project-tag">GraphQL</span>
-                            <span class="project-tag">MySQL</span>
-                        </div>
-                    </div>
-                </div>
+    <!-- Experience Section -->
+    <section id="experience" class="section experience">
+      <h2 class="section-title">Experience</h2>
+      <div class="experience-container">
+        <div class="job-item">
+          <div class="job-header">
+            <h3 class="job-title">IT Support Technician</h3>
+            <span class="job-date">2022 - Present</span>
+          </div>
+          <ul class="job-description">
+            <li>Diagnosed and resolved technical issues across Windows, macOS, and Linux environments </li>
+            <li>Managed technical inquiries, timely issue resolution, and clear communication </li>
+            <li>Provided technical and customer assistance to non-technical users with high customer</li>
+          </ul>
+        </div>
+
+        <div class="job-item">
+          <div class="job-header">
+            <h3 class="job-title">Full Stack Developer</h3>
+            <span class="job-date">2020 - 2022</span>
+          </div>
+          <ul class="job-description">
+            <li>Developed full-stack applications using React, Node.js, and MongoDB</li>
+            <li>Collaborated with UX designers to implement pixel-perfect interfaces</li>
+            <li>Optimized database queries improving application performance by 35%</li>
+          </ul>
+        </div>
+
+        <div class="job-item">
+          <div class="job-header">
+            <h3 class="job-title">Web Developer</h3>
+            <span class="job-date">2018 - 2020</span>
+          </div>
+          <ul class="job-description">
+            <li>Built and maintained client websites using HTML, CSS, and JavaScript</li>
+            <li>Implemented responsive designs for mobile and desktop platforms</li>
+            <li>Integrated third-party APIs and payment processing systems</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section skills">
+      <h2 class="section-title">Skills & Expertise</h2>
+
+      <div class="skills-container">
+        <div class="skills-column">
+          <h3 class="skills-category">Programming & Development</h3>
+          <div class="skills-tags">
+            <span class="skill-tag">JavaScript</span>
+            <span class="skill-tag">TypeScript</span>
+            <span class="skill-tag">React</span>
+            <span class="skill-tag">Node.js</span>
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">HTML/CSS</span>
+          </div>
+        </div>
+
+        <div class="skills-column">
+          <h3 class="skills-category">Tools & Technologies</h3>
+          <div class="skills-tags">
+            <span class="skill-tag">Git</span>
+            <span class="skill-tag">Docker</span>
+            <span class="skill-tag">AWS</span>
+            <span class="skill-tag">MongoDB</span>
+            <span class="skill-tag">PostgreSQL</span>
+            <span class="skill-tag">Webpack</span>
+          </div>
+        </div>
+
+        <div class="skills-column">
+          <h3 class="skills-category">Professional Skills</h3>
+          <div class="skills-tags">
+            <span class="skill-tag">Agile Methodology</span>
+            <span class="skill-tag">UI/UX Design</span>
+            <span class="skill-tag">Project Management</span>
+            <span class="skill-tag">Technical Writing</span>
+            <span class="skill-tag">Team Leadership</span>
+            <span class="skill-tag">Problem Solving</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section projects">
+      <h2 class="section-title">Featured Projects</h2>
+      <div class="projects-grid">
+        <div class="project-card">
+          <div class="project-image">
+            <img src="https://via.placeholder.com/300x200" alt="Project 1" />
+          </div>
+          <div class="project-content">
+            <h3 class="project-title">Cyber Range Lab Deployment & Training Platform</h3>
+            <p class="project-description">A full-featured online shopping platform with payment processing and inventory management.</p>
+            <div class="project-tags">
+              <span class="project-tag">React</span>
+              <span class="project-tag">Node.js</span>
+              <span class="project-tag">MongoDB</span>
             </div>
-        </section>
+          </div>
+        </div>
 
-        <!-- Connect Section -->
-        <section id="connect" class="section connect">
-    <h2 class="section-title">Connect</h2>
-    <div class="connect-grid">
+        <div class="project-card">
+          <div class="project-image">
+            <img src="https://via.placeholder.com/300x200" alt="Project 2" />
+          </div>
+          <div class="project-content">
+            <h3 class="project-title">Task Management App</h3>
+            <p class="project-description">A collaborative task management application with real-time updates and team features.</p>
+            <div class="project-tags">
+              <span class="project-tag">Vue.js</span>
+              <span class="project-tag">Firebase</span>
+              <span class="project-tag">CSS</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-image">
+            <img src="https://via.placeholder.com/300x200" alt="Project 3" />
+          </div>
+          <div class="project-content">
+            <h3 class="project-title">Weather Dashboard</h3>
+            <p class="project-description">An interactive weather application with forecasting and location-based services.</p>
+            <div class="project-tags">
+              <span class="project-tag">JavaScript</span>
+              <span class="project-tag">API</span>
+              <span class="project-tag">Chart.js</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-image">
+            <img src="https://via.placeholder.com/300x200" alt="Project 4" />
+          </div>
+          <div class="project-content">
+            <h3 class="project-title">Fitness Tracker</h3>
+            <p class="project-description">A mobile-friendly fitness application with workout planning and progress tracking.</p>
+            <div class="project-tags">
+              <span class="project-tag">React Native</span>
+              <span class="project-tag">GraphQL</span>
+              <span class="project-tag">MySQL</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Connect Section -->
+    <section id="connect" class="section connect">
+      <h2 class="section-title">Connect</h2>
+      <div class="connect-grid">
         <div class="connect-left">
-            <h3>Let's Connect</h3>
-            <p>I'm always interested in new opportunities, collaborations, and interesting projects. Whether you want to discuss data science, AI, or just say hello, I'd love to hear from you.</p>
+          <h3>Let's Connect</h3>
+          <p>I'm always interested in new opportunities, collaborations, and interesting projects. Whether you want to discuss data science, AI, or just say hello, I'd love to hear from you.</p>
+
+          <div class="contact-info">
             
-            <div class="contact-info">
-                <!-- LinkedIn -->
-                <div class="contact-item" onclick="window.open('https://www.linkedin.com/in/edwin-huallpa-346868281/', '_blank')">
-                    <div class="contact-icon">
-                        <i class="fab fa-linkedin"></i>
-                    </div>
-                    <span class="contact-label">Edwin Huallpa</span>
-                </div>
-                
-                <!-- GitHub -->
-                <div class="contact-item" onclick="window.open('https://github.com/hl7joao', '_blank')">
-                    <div class="contact-icon">
-                        <i class="fab fa-github"></i>
-                    </div>
-                    <span class="contact-label">hl7joao</span>
-                </div>
-                
-                <!-- Email -->
-                <div class="contact-item" onclick="window.location.href='mailto:hl7joao@gmail.com'">
-                    <div class="contact-icon">
-                        <i class="fas fa-envelope"></i>
-                    </div>
-                    <span class="contact-label">hl7joao@gmail.com</span>
-                </div>
+            <!-- LinkedIn -->
+            <div class="contact-item" onclick="window.open('https://www.linkedin.com/in/edwin-huallpa-346868281/', '_blank')">
+              <div class="contact-icon"><i class="fab fa-linkedin"></i></div>
+              <span class="contact-label">Edwin Huallpa</span>
             </div>
-        </div>
-                
-                <div class="connect-right">
-                    <div class="form-container">
-                        <h3>Connect With Me</h3>
-                        <form class="contact-form">
-                            <div class="form-group">
-                                <input type="text" id="name" placeholder="Your Name" required>
-                            </div>
-                            <div class="form-group">
-                                <input type="email" id="email" placeholder="Your Email" required>
-                            </div>
-                            <div class="form-group">
-                                <textarea id="message" rows="4" placeholder="Your Message" required></textarea>
-                            </div>
-                            <button type="submit" class="submit-btn">Send Message</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </section>
 
-    <!-- Project Modal -->
-    <div id="project-modal" class="modal">
-        <div class="modal-content">
-            <span class="close-modal">&times;</span>
-            <div id="modal-body"></div>
+            <!-- GitHub -->
+            <div class="contact-item" onclick="window.open('https://github.com/hl7joao', '_blank')">
+              <div class="contact-icon"><i class="fab fa-github"></i></div>
+              <span class="contact-label">hl7joao</span>
+            </div>
+
+            <!-- Email -->
+            <div class="contact-item" onclick="window.location.href='mailto:hl7joao@gmail.com'">
+              <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+              <span class="contact-label">hl7joao@gmail.com</span>
+            </div>
+          </div>
         </div>
+
+        <div class="connect-right">
+          <div class="form-container">
+            <h3>Connect With Me</h3>
+            <form class="contact-form">
+              <div class="form-group">
+                <input type="text" id="name" placeholder="Your Name" required />
+              </div>
+              <div class="form-group">
+                <input type="email" id="email" placeholder="Your Email" required />
+              </div>
+              <div class="form-group">
+                <textarea id="message" rows="4" placeholder="Your Message" required></textarea>
+              </div>
+              <button type="submit" class="submit-btn">Send Message</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div><!-- /main-content -->
+
+  <!-- Project Modal -->
+  <div id="project-modal" class="modal">
+    <div class="modal-content">
+      <span class="close-modal">&times;</span>
+      <div id="modal-body"></div>
     </div>
+  </div>
 
-    <!-- Keep your main script, then add the assignment script -->
-    <script src="script.js" defer></script>
-    <script src="js/index.js" defer></script>
+  <!-- Scripts -->
+  <script src="script.js" defer></script>
+  <script src="js/index.js" defer></script>
 </body>
 </html>
