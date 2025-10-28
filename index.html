@@ -21,6 +21,9 @@
           <li><a href="#skills" class="nav-link">Skills</a></li>
           <li><a href="#projects" class="nav-link">Projects</a></li>
           <li><a href="#connect" class="nav-link">Connect</a></li>
+          
+          <li><a href="#leave-message" class="nav-link">Leave a Message</a></li>
+
         </ul>
       </nav>
     </header>
@@ -249,6 +252,31 @@
       </div>
     </section>
   </div><!-- /main-content -->
+
+  <!-- Leave a Message (temporary assignment section) -->
+<section id="leave-message">
+  <h2>Leave a Message</h2>
+
+  <form name="leave_message">
+    <label for="usersName">Name</label><br>
+    <input type="text" id="usersName" name="usersName" required autocomplete="name"><br><br>
+
+    <label for="usersEmail">Email</label><br>
+    <input type="email" id="usersEmail" name="usersEmail" required autocomplete="email"><br><br>
+
+    <label for="usersMessage">Message</label><br>
+    <textarea id="usersMessage" name="usersMessage" required placeholder="Write your message..." autocomplete="off"></textarea><br><br>
+
+    <button type="submit">Submit</button>
+  </form>
+</section>
+
+<!-- Messages list (temporary assignment section) -->
+<section id="messages">
+  <h2>Messages</h2>
+  <ul></ul>
+</section>
+  
 
   <!-- Project Modal -->
   <div id="project-modal" class="modal">

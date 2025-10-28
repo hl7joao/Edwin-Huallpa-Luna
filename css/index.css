@@ -1137,3 +1137,136 @@ footer {
     font-size: 0.9rem;
     color: #cbd5e1;
 }
+
+/* ===== Assignment-only: Leave a Message + Messages polish ===== */
+#leave-message,
+#messages {
+  max-width: 720px;
+  margin: 36px auto;
+  padding: 20px;
+  background: rgba(2, 6, 23, 0.7);
+  border: 1px solid var(--border, #1f2a3c);
+  border-radius: 14px;
+  box-shadow: 0 14px 36px rgba(0,0,0,.28);
+}
+
+/* headings */
+#leave-message h2,
+#messages h2 {
+  margin: 0 0 16px;
+  font-size: 1.6rem;
+  font-weight: 800;
+  letter-spacing: .2px;
+  text-align: center;
+  color: var(--ink, #e5e7eb);
+}
+
+/* form fields */
+#leave-message form label {
+  display: block;
+  margin: 10px 0 6px;
+  font-weight: 600;
+  color: var(--ink, #e5e7eb);
+  opacity: .95;
+}
+
+#leave-message input[type="text"],
+#leave-message input[type="email"],
+#leave-message textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid #2b3444;
+  background: #0f172a;
+  color: var(--ink, #e5e7eb);
+  font-size: 1rem;
+  outline: none;
+  transition: border-color .2s ease, box-shadow .2s ease, transform .05s ease;
+}
+
+#leave-message textarea { min-height: 110px; resize: vertical; }
+
+/* focus states */
+#leave-message input:focus,
+#leave-message textarea:focus {
+  border-color: rgba(124,58,237,.55);
+  box-shadow: 0 0 0 4px rgba(124,58,237,.15);
+}
+
+/* submit button */
+#leave-message button[type="submit"] {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 12px;
+  padding: 12px 18px;
+  border: 0;
+  border-radius: 12px;
+  background: var(--accent, #7c3aed);
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform .06s ease, box-shadow .2s ease, background .2s ease;
+}
+
+#leave-message button[type="submit"]:hover { box-shadow: 0 10px 28px rgba(124,58,237,.28); }
+#leave-message button[type="submit"]:active { transform: translateY(1px) scale(.995); }
+
+/* stack the <br> fields tighter without changing your HTML */
+#leave-message br + br { display: none; }
+
+/* message list styling */
+#messages ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 10px;
+}
+
+#messages li {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 14px;
+  background: #0f172a;
+  border: 1px solid #263246;
+  border-radius: 12px;
+  color: var(--ink, #e5e7eb);
+}
+
+#messages li a {
+  color: var(--accent, #7c3aed);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+#messages li span { color: #cbd5e1; }
+
+/* remove button */
+#messages li button {
+  justify-self: end;
+  padding: 6px 12px;
+  border: 1px solid rgba(239,68,68,.35);
+  background: rgba(239,68,68,.12);
+  color: #fecaca;
+  border-radius: 999px;
+  font-size: .92rem;
+  cursor: pointer;
+  transition: background .2s ease, border-color .2s ease, transform .06s ease;
+}
+#messages li button:hover {
+  background: rgba(239,68,68,.18);
+  border-color: rgba(239,68,68,.55);
+}
+#messages li button:active { transform: translateY(1px); }
+
+/* mobile tweaks */
+@media (max-width: 560px) {
+  #leave-message, #messages { margin: 24px 12px; padding: 16px; }
+  #leave-message input, #leave-message textarea { font-size: 16px; } /* avoid iOS zoom */
+  #messages li { grid-template-columns: 1fr; gap: 8px; }
+  #messages li button { justify-self: start; }
+}
