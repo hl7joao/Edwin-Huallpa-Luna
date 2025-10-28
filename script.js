@@ -30,6 +30,8 @@ document.addEventListener("DOMContentLoaded", () => {
   initMessageForm();
   initGithubRepos();
   initializeSkills(); // Make sure this is here
+  initAssignmentLeaveMessage(); // <-- add this line
+
 });
 
 // ---------- Smooth scrolling for navigation links ----------
@@ -272,6 +274,52 @@ function initializeSkills() {
     skillsContainer.appendChild(column);
   });
 }
+
+// ----- Assignment-only: "Leave a Message" form handler -----
+function initAssignmentLeaveMessage() {
+  const messageForm = document.forms["leave_message"];
+  if (!messageForm) return; // safe exit if the temporary form isn't on the page
+
+  messageForm.addEventListener("submit", function (event) {
+    // prevent page refresh
+    event.preventDefault();
+
+    // grab values from the form (match name attributes exactly)
+    const usersName = event.target.usersName.value.trim();
+    const usersEmail = event.target.usersEmail.value.trim();
+    const usersMessage = event.target.usersMessage.value.trim();
+
+    // log them as the assignment requires
+    console.log(usersName, usersEmail, usersMessage);
+
+    // display in #messages list
+    const messageSection = document.getElementById("messages");
+    const messageList = messageSection ? messageSection.querySelector("ul") : null;
+
+    if (messageList) {
+      const newMessage = document.createElement("li");
+      newMessage.innerHTML = `
+        <a href="mailto:${usersEmail}">${usersName}</a>
+        <span> — ${usersMessage}</span>
+      `;
+
+      const removeButton = document.createElement("button");
+      removeButton.type = "button";
+      removeButton.textContent = "remove";
+      removeButton.addEventListener("click", function () {
+        // remove the parent <li>
+        newMessage.remove();
+      });
+
+      newMessage.appendChild(removeButton);
+      messageList.appendChild(newMessage);
+    }
+
+    // clear the form
+    event.target.reset();
+  });
+}
+
 
 // ---------- GitHub repos - Name Only ----------
 function initGithubRepos() {
