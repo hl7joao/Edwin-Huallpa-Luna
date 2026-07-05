@@ -2,7 +2,7 @@
 
 (function () {
   // Helper to check if a global function exists
-  const fn = (name) => (typeof window[name] === "function" ? window[name] : null);
+  // (unused fn helper removed)
 
 // Replace broken <img> with a single custom fallback image
 document.addEventListener(
@@ -29,8 +29,9 @@ document.addEventListener("DOMContentLoaded", () => {
   initializeScrollAnimations();
   initMessageForm();
   initGithubRepos();
-  initializeSkills(); // Make sure this is here
-  initAssignmentLeaveMessage(); // <-- add this line
+  initializeSkills();
+  initializePillToggle();
+  initializeNavCarousel();
 
 });
 
@@ -71,12 +72,12 @@ function initializeProjectModals() {
     {
       title: "Cyber Range Lab Deployment & Training Platform",
       description:
-        "A full-featured online shopping platform with payment processing and inventory management.",
+        "A full-featured cyber range platform for deploying and managing security training environments.",
       longDescription:
-        "This e-commerce platform was built with a React frontend and Node.js backend. It features user authentication, product catalog, shopping cart, payment processing with Stripe integration, and an admin dashboard for inventory management. The application is fully responsive and optimized for performance.",
-      technologies: ["React", "Node.js", "MongoDB", "Express", "Stripe API"],
+        "This cyber range platform allows deploying and managing security training environments on demand. Built with React and Node.js, it features automated lab provisioning, realistic attack scenarios, progress tracking, and instructor dashboards for managing student cohorts and exercises.",
+      technologies: ["React", "Node.js", "MongoDB", "Express", "Terraform"],
       githubUrl: "https://github.com/hl7joao/Edwin-Huallpa-Luna",
-      demoUrl: "https://yourdemo.com/ecommerce-platform",
+      demoUrl: "https://yourdemo.com/cyber-range",
     },
     {
       title: "Task Management App",
@@ -218,11 +219,10 @@ function initMessageForm() {
     // Open user's email client
     const mailtoLink = `mailto:hl7joao@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     
-    // Open email client in new tab
-    window.open(mailtoLink, '_blank');
+    // Open email client
+    window.location.href = mailtoLink;
     
-    // Show success message
-    alert(`Thank you ${usersName}! Your email client will open with the message pre-filled. Just click send!`);
+    alert(`Thanks ${usersName}! Your email client should open with the message pre-filled.`);
     
     // Optional: Clear form after submission
     messageForm.reset();
@@ -275,51 +275,6 @@ function initializeSkills() {
   });
 }
 
-// ----- Assignment-only: "Leave a Message" form handler -----
-function initAssignmentLeaveMessage() {
-  const messageForm = document.forms["leave_message"];
-  if (!messageForm) return; // safe exit if the temporary form isn't on the page
-
-  messageForm.addEventListener("submit", function (event) {
-    // prevent page refresh
-    event.preventDefault();
-
-    // grab values from the form (match name attributes exactly)
-    const usersName = event.target.usersName.value.trim();
-    const usersEmail = event.target.usersEmail.value.trim();
-    const usersMessage = event.target.usersMessage.value.trim();
-
-    // log them as the assignment requires
-    console.log(usersName, usersEmail, usersMessage);
-
-    // display in #messages list
-    const messageSection = document.getElementById("messages");
-    const messageList = messageSection ? messageSection.querySelector("ul") : null;
-
-    if (messageList) {
-      const newMessage = document.createElement("li");
-      newMessage.innerHTML = `
-        <a href="mailto:${usersEmail}">${usersName}</a>
-        <span> — ${usersMessage}</span>
-      `;
-
-      const removeButton = document.createElement("button");
-      removeButton.type = "button";
-      removeButton.textContent = "remove";
-      removeButton.addEventListener("click", function () {
-        // remove the parent <li>
-        newMessage.remove();
-      });
-
-      newMessage.appendChild(removeButton);
-      messageList.appendChild(newMessage);
-    }
-
-    // clear the form
-    event.target.reset();
-  });
-}
-
 
 // ---------- GitHub repos - Name Only ----------
 function initGithubRepos() {
@@ -348,9 +303,11 @@ function initGithubRepos() {
 
       projectList.innerHTML = "";
 
+      const exclude = ["Edwin-Huallpa-Luna", "edwin-open-api", "intro-to-programming-debugging"];
       repositories
         .sort((a, b) => new Date(b.updated_at) - new Date(a.updated_at))
-        .slice(0, 9) // Show more repos since we're only showing names
+        .filter((repo) => !exclude.includes(repo.name))
+        .slice(0, 9)
         .forEach((repo) => {
           const li = document.createElement("li");
           
@@ -375,5 +332,211 @@ function initGithubRepos() {
       }
       errorMsg.textContent = "Sorry, we couldn't load GitHub projects right now.";
     });
+}
+
+// ---------- Pill Toggle (scroll reveal on mobile / hover+click on desktop) ----------
+function initializePillToggle() {
+  const pills = document.querySelectorAll('.about-pill');
+  if (!pills.length) return;
+
+  const isMobile = window.matchMedia('(max-width: 900px)');
+  let observer = null;
+  let clickHandlers = new Map(); // Store handlers for cleanup
+
+  function cleanupPills() {
+    // Remove all expanded classes
+    pills.forEach(pill => {
+      pill.classList.remove('expanded');
+      pill.removeAttribute('aria-expanded');
+      pill.removeAttribute('tabindex');
+      pill.removeAttribute('role');
+
+      // Remove old event listeners
+      const handlers = clickHandlers.get(pill);
+      if (handlers) {
+        pill.removeEventListener('click', handlers.click);
+        pill.removeEventListener('keydown', handlers.keydown);
+      }
+    });
+    clickHandlers.clear();
+
+    // Disconnect observer if it exists
+    if (observer) {
+      observer.disconnect();
+      observer = null;
+    }
+  }
+
+  function setupPillBehavior() {
+    cleanupPills();
+
+    if (isMobile.matches) {
+      // Mobile: Auto-expand on scroll with stagger
+      const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.2
+      };
+
+      observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            // Coming into view - expand with stagger
+            if (!entry.target.classList.contains('expanded')) {
+              const pillIndex = Array.from(pills).indexOf(entry.target);
+              setTimeout(() => {
+                entry.target.classList.add('expanded');
+                entry.target.setAttribute('aria-expanded', 'true');
+              }, pillIndex * 180); // 180ms - smooth cascade that matches scroll pace
+            }
+          } else {
+            // Leaving view - collapse immediately
+            entry.target.classList.remove('expanded');
+            entry.target.setAttribute('aria-expanded', 'false');
+          }
+        });
+      }, observerOptions);
+
+      pills.forEach(pill => {
+        observer.observe(pill);
+      });
+    } else {
+      // Desktop: Click to toggle (hover handled by CSS)
+      pills.forEach(pill => {
+        // Make pills keyboard accessible
+        pill.setAttribute('tabindex', '0');
+        pill.setAttribute('role', 'button');
+        pill.setAttribute('aria-expanded', 'false');
+
+        const clickHandler = function() {
+          this.classList.toggle('expanded');
+          this.setAttribute('aria-expanded', this.classList.contains('expanded'));
+        };
+
+        const keydownHandler = function(e) {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            this.classList.toggle('expanded');
+            this.setAttribute('aria-expanded', this.classList.contains('expanded'));
+          }
+        };
+
+        pill.addEventListener('click', clickHandler);
+        pill.addEventListener('keydown', keydownHandler);
+
+        // Store handlers for cleanup
+        clickHandlers.set(pill, { click: clickHandler, keydown: keydownHandler });
+      });
+    }
+  }
+
+  // Initial setup
+  setupPillBehavior();
+
+  // Re-setup on resize (if switching between mobile/desktop)
+  isMobile.addEventListener('change', setupPillBehavior);
+}
+
+// ---------- Mobile Navigation Carousel ----------
+function initializeNavCarousel() {
+  const navItems = document.querySelectorAll('.nav-list li');
+  const navDots = document.querySelectorAll('.nav-dot');
+  const navList = document.querySelector('.nav-list');
+
+  if (!navItems.length) return;
+
+  let currentIndex = 0;
+
+  function updateCarousel() {
+    // Remove active class from all items
+    navItems.forEach(item => item.classList.remove('active'));
+    navDots.forEach(dot => dot.classList.remove('active'));
+
+    // Add active class to current item
+    navItems[currentIndex].classList.add('active');
+    if (navDots[currentIndex]) {
+      navDots[currentIndex].classList.add('active');
+    }
+  }
+
+  function goToNext() {
+    if (currentIndex < navItems.length - 1) {
+      currentIndex++;
+      updateCarousel();
+      scrollToSection();
+    }
+  }
+
+  function goToPrevious() {
+    if (currentIndex > 0) {
+      currentIndex--;
+      updateCarousel();
+      scrollToSection();
+    }
+  }
+
+  function scrollToSection() {
+    const activeLink = navItems[currentIndex].querySelector('.nav-link');
+    const targetId = activeLink.getAttribute('href');
+
+    if (targetId && targetId.startsWith('#')) {
+      const targetSection = document.querySelector(targetId);
+      const header = document.querySelector('.sticky-header');
+
+      if (targetSection) {
+        const headerHeight = header ? header.offsetHeight : 0;
+        const targetPosition = targetSection.offsetTop - headerHeight;
+        window.scrollTo({ top: targetPosition, behavior: 'smooth' });
+      }
+    }
+  }
+
+  // Touch swipe support
+  let touchStartX = 0;
+  let touchEndX = 0;
+  let touchStartY = 0;
+  let touchEndY = 0;
+
+  if (navList) {
+    navList.addEventListener('touchstart', (e) => {
+      touchStartX = e.changedTouches[0].clientX;
+      touchStartY = e.changedTouches[0].clientY;
+    }, { passive: true });
+
+    navList.addEventListener('touchend', (e) => {
+      touchEndX = e.changedTouches[0].clientX;
+      touchEndY = e.changedTouches[0].clientY;
+      handleSwipe();
+    }, { passive: true });
+  }
+
+  function handleSwipe() {
+    const swipeThreshold = 40;
+    const diffX = touchStartX - touchEndX;
+    const diffY = Math.abs(touchStartY - touchEndY);
+
+    // Only trigger if horizontal swipe is dominant
+    if (Math.abs(diffX) > swipeThreshold && diffY < Math.abs(diffX)) {
+      if (diffX > 0) {
+        // Swiped left - go to next
+        goToNext();
+      } else {
+        // Swiped right - go to previous
+        goToPrevious();
+      }
+    }
+  }
+
+  // Dot click handlers
+  navDots.forEach((dot, index) => {
+    dot.addEventListener('click', () => {
+      currentIndex = index;
+      updateCarousel();
+      scrollToSection();
+    });
+  });
+
+  // Initialize
+  updateCarousel();
 }
 })();

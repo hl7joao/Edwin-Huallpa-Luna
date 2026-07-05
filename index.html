@@ -16,17 +16,21 @@
     <header class="sticky-header">
       <nav class="nav-container">
         <ul class="nav-list">
-          <li><a href="#about" class="nav-link">About</a></li>
+          <li class="active"><a href="#about" class="nav-link">About</a></li>
           <li><a href="#experience" class="nav-link">Experience</a></li>
           <li><a href="#skills" class="nav-link">Skills</a></li>
           <li><a href="#projects" class="nav-link">Projects</a></li>
           <li><a href="#connect" class="nav-link">Connect</a></li>
-          
-          <li><a href="#leave-message" class="nav-link">Leave a Message</a></li>
-
         </ul>
+        <div class="nav-dots">
+          <span class="nav-dot active"></span>
+          <span class="nav-dot"></span>
+          <span class="nav-dot"></span>
+          <span class="nav-dot"></span>
+          <span class="nav-dot"></span>
+        </div>
       </nav>
-    </header>
+    </header></thinking>
 
     <!-- Hero Section -->
     <section id="hero" class="hero">
@@ -53,17 +57,32 @@
     <!-- About Section -->
     <section id="about">
       <div class="container">
-        <h2>About Me</h2>
+        <div class="about-heading">
+          <span class="about-kicker">Profile</span>
+          <h2>About Me</h2>
+          <p class="about-intro">I build at the intersection of software, analytics, and intelligent systems, with a focus on making complex work useful, clear, and production-ready.</p>
+        </div>
         <div class="about-grid">
           <div class="about-left">
-            <p>I am Edwin, a builder and problem solver fueled by data, AI, and curiosity. I work at the intersection of analysis, automation, and innovation, turning raw datasets into tools, insights, and intelligent systems that drive results.</p>
-            <p>From building dashboards and training machine learning models to crafting AI-powered user experiences, I focus on creating work that is both functional and thoughtful. I thrive in fast-paced, collaborative environments and often bridge the gap between data, design, and decision-making.</p>
-            <p>I am especially drawn to the challenge of building from scratch. My work blends technical skills with a strong sense of purpose, whether I am optimizing a product, automating a workflow, or rethinking a system entirely.</p>
+            <div class="about-copy-card">
+              <p>I am Edwin, a builder fueled by data, AI, and curiosity. I work at the intersection of analysis, automation, and innovation, turning raw datasets into tools, insights, and intelligent systems that drive results.</p>
+              <p>From building dashboards and training ML models to crafting AI-powered experiences, I bridge the gap between data, design, and decision-making. I'm especially drawn to building from scratch: optimizing products, automating workflows, and rethinking systems entirely.</p>
+            </div>
+            <div class="about-signal-row">
+              <div class="about-signal">
+                <span class="about-signal-label">Focus</span>
+                <strong>Data-driven product building</strong>
+              </div>
+              <div class="about-signal">
+                <span class="about-signal-label">Approach</span>
+                <strong>Clear systems, practical execution</strong>
+              </div>
+            </div>
           </div>
           <div class="about-right">
             <div class="about-pill">
               <span class="pill-icon"><i class="fas fa-brain"></i></span>
-              <span class="pill-title">AI/Computer Vision</span>
+              <span class="pill-title">AI & Computer Vision</span>
               <span class="pill-desc">Advanced neural networks and image processing</span>
             </div>
             <div class="about-pill">
@@ -98,7 +117,7 @@
           <ul class="job-description">
             <li>Diagnosed and resolved technical issues across Windows, macOS, and Linux environments </li>
             <li>Managed technical inquiries, timely issue resolution, and clear communication </li>
-            <li>Provided technical and customer assistance to non-technical users with high customer</li>
+                            <li>Provided technical and customer assistance to non-technical users with high customer</li>
           </ul>
         </div>
 
@@ -146,7 +165,7 @@
           </div>
           <div class="project-content">
             <h3 class="project-title">Cyber Range Lab Deployment & Training Platform</h3>
-            <p class="project-description">A full-featured online shopping platform with payment processing and inventory management.</p>
+            <p class="project-description">A full-featured cyber range platform for deploying and managing security training environments.</p>
             <div class="project-tags">
               <span class="project-tag">React</span>
               <span class="project-tag">Node.js</span>
@@ -252,31 +271,6 @@
       </div>
     </section>
   </div><!-- /main-content -->
-
-  <!-- Leave a Message (temporary assignment section) -->
-<section id="leave-message">
-  <h2>Leave a Message</h2>
-
-  <form name="leave_message">
-    <label for="usersName">Name</label><br>
-    <input type="text" id="usersName" name="usersName" required autocomplete="name"><br><br>
-
-    <label for="usersEmail">Email</label><br>
-    <input type="email" id="usersEmail" name="usersEmail" required autocomplete="email"><br><br>
-
-    <label for="usersMessage">Message</label><br>
-    <textarea id="usersMessage" name="usersMessage" required placeholder="Write your message..." autocomplete="off"></textarea><br><br>
-
-    <button type="submit">Submit</button>
-  </form>
-</section>
-
-<!-- Messages list (temporary assignment section) -->
-<section id="messages">
-  <h2>Messages</h2>
-  <ul></ul>
-</section>
-  
 
   <!-- Project Modal -->
   <div id="project-modal" class="modal">
