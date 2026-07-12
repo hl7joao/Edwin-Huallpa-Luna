@@ -611,16 +611,11 @@ body {
     line-height: 1.45;
   }
 
-  /* keep pill descriptions permanently open so the right column's height
-     is stable and never pushes the Focus/Approach row down mid-scroll */
+  /* reserve the description's space permanently so the scroll-reveal
+     animates opacity/transform only — the discovery effect stays, but the
+     column height is fixed and never pushes the Focus/Approach row down */
   .about-pill {
     grid-template-rows: auto 1fr;
-  }
-
-  .pill-desc {
-    opacity: 1;
-    transform: translateY(0);
-    transition: none;
   }
 }
 
