@@ -90,6 +90,11 @@ body {
     gap: 40px;
 }
 
+/* carousel dots are a mobile-only control; the 768px media query re-enables them */
+.nav-dots {
+    display: none;
+}
+
 .nav-arrow {
     display: none;
 }
