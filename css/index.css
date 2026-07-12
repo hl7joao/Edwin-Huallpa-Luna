@@ -574,18 +574,21 @@ body {
 
   .about-right {
     grid-column: 2;
-    grid-row: 1;
+    grid-row: 1 / span 2;
   }
 
+  /* Focus/Approach anchor under the description in the left column,
+     out of the pills' expansion path — they never get pushed */
   .about-signal-row {
-    grid-column: 1 / -1;
+    grid-column: 1;
     grid-row: 2;
     display: grid;
     flex-direction: unset;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 16px;
+    grid-template-columns: 1fr;
+    gap: 12px;
     margin-top: 0;
     padding: 0;
+    align-self: start;
   }
 
   .about-signal {
@@ -611,12 +614,6 @@ body {
     line-height: 1.45;
   }
 
-  /* reserve the description's space permanently so the scroll-reveal
-     animates opacity/transform only — the discovery effect stays, but the
-     column height is fixed and never pushes the Focus/Approach row down */
-  .about-pill {
-    grid-template-rows: auto 1fr;
-  }
 }
 
 @media (max-width: 560px) {
