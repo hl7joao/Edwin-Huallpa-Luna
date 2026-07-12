@@ -343,6 +343,25 @@ function initializePillToggle() {
   let observer = null;
   let clickHandlers = new Map(); // Store handlers for cleanup
 
+  // Track scroll direction so the reveal cascade follows the direction of
+  // travel: top-to-bottom reveals first card first, bottom-to-top reveals
+  // the last card first
+  let lastScrollY = window.scrollY;
+  let scrollDirection = 'down';
+  window.addEventListener('scroll', () => {
+    const y = window.scrollY;
+    if (y !== lastScrollY) {
+      scrollDirection = y < lastScrollY ? 'up' : 'down';
+      lastScrollY = y;
+    }
+  }, { passive: true });
+
+  function staggerDelay(pill) {
+    const pillIndex = Array.from(pills).indexOf(pill);
+    const order = scrollDirection === 'up' ? pills.length - 1 - pillIndex : pillIndex;
+    return order * 180; // 180ms - smooth cascade that matches scroll pace
+  }
+
   function cleanupPills() {
     // Remove all expanded classes
     pills.forEach(pill => {
@@ -382,13 +401,12 @@ function initializePillToggle() {
       observer = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            // Coming into view - expand with stagger
+            // Coming into view - expand with direction-aware stagger
             if (!entry.target.classList.contains('expanded')) {
-              const pillIndex = Array.from(pills).indexOf(entry.target);
               setTimeout(() => {
                 entry.target.classList.add('expanded');
                 entry.target.setAttribute('aria-expanded', 'true');
-              }, pillIndex * 180); // 180ms - smooth cascade that matches scroll pace
+              }, staggerDelay(entry.target));
             }
           } else {
             // Leaving view - collapse immediately
@@ -402,7 +420,24 @@ function initializePillToggle() {
         observer.observe(pill);
       });
     } else {
-      // Desktop: Click to toggle (hover handled by CSS)
+      // Desktop: same living behavior as mobile/tablet — staggered expand
+      // while on screen, auto-collapse off screen (click/keyboard still toggle)
+      observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            if (!entry.target.classList.contains('expanded')) {
+              setTimeout(() => {
+                entry.target.classList.add('expanded');
+                entry.target.setAttribute('aria-expanded', 'true');
+              }, staggerDelay(entry.target));
+            }
+          } else {
+            entry.target.classList.remove('expanded');
+            entry.target.setAttribute('aria-expanded', 'false');
+          }
+        });
+      }, { root: null, rootMargin: '0px', threshold: 0.2 });
+
       pills.forEach(pill => {
         // Make pills keyboard accessible
         pill.setAttribute('tabindex', '0');
@@ -422,18 +457,13 @@ function initializePillToggle() {
           }
         };
 
-        // a click-pinned pill should not stay open once the cursor leaves
-        const mouseleaveHandler = function() {
-          this.classList.remove('expanded');
-          this.setAttribute('aria-expanded', 'false');
-        };
-
         pill.addEventListener('click', clickHandler);
         pill.addEventListener('keydown', keydownHandler);
-        pill.addEventListener('mouseleave', mouseleaveHandler);
 
         // Store handlers for cleanup
-        clickHandlers.set(pill, { click: clickHandler, keydown: keydownHandler, mouseleave: mouseleaveHandler });
+        clickHandlers.set(pill, { click: clickHandler, keydown: keydownHandler });
+
+        observer.observe(pill);
       });
     }
   }
