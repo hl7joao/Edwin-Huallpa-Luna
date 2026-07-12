@@ -555,6 +555,63 @@ body {
   }
 }
 
+/* Tablet: mimic the desktop About layout — copy left, pills right,
+   Focus/Approach as full-width cards below (phones keep the compact inline style) */
+@media (min-width: 600px) and (max-width: 900px) {
+  .about-grid {
+    grid-template-columns: minmax(0, 1.15fr) minmax(280px, 0.85fr);
+    gap: 24px;
+  }
+
+  /* promote the left column's children to grid items so the
+     signal row can span both columns below the two cards */
+  .about-left { display: contents; }
+
+  .about-copy-card {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .about-right {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .about-signal-row {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    display: grid;
+    flex-direction: unset;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+    margin-top: 0;
+    padding: 0;
+  }
+
+  .about-signal {
+    display: block;
+    padding: 18px 20px;
+    border-radius: 18px;
+    border: 1px solid rgba(255,255,255,.08);
+    background: rgba(14,22,41,.72);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.03);
+  }
+
+  .about-signal-label {
+    display: block;
+    margin: 0 0 8px;
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+  }
+
+  .about-signal-label::after { content: none; }
+
+  .about-signal strong {
+    font-size: 1rem;
+    line-height: 1.45;
+  }
+}
+
 @media (max-width: 560px) {
   #about {
     padding: 72px 0 58px;

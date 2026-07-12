@@ -356,6 +356,7 @@ function initializePillToggle() {
       if (handlers) {
         pill.removeEventListener('click', handlers.click);
         pill.removeEventListener('keydown', handlers.keydown);
+        pill.removeEventListener('mouseleave', handlers.mouseleave);
       }
     });
     clickHandlers.clear();
@@ -421,11 +422,18 @@ function initializePillToggle() {
           }
         };
 
+        // a click-pinned pill should not stay open once the cursor leaves
+        const mouseleaveHandler = function() {
+          this.classList.remove('expanded');
+          this.setAttribute('aria-expanded', 'false');
+        };
+
         pill.addEventListener('click', clickHandler);
         pill.addEventListener('keydown', keydownHandler);
+        pill.addEventListener('mouseleave', mouseleaveHandler);
 
         // Store handlers for cleanup
-        clickHandlers.set(pill, { click: clickHandler, keydown: keydownHandler });
+        clickHandlers.set(pill, { click: clickHandler, keydown: keydownHandler, mouseleave: mouseleaveHandler });
       });
     }
   }
