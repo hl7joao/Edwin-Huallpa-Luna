@@ -610,6 +610,18 @@ body {
     font-size: 1rem;
     line-height: 1.45;
   }
+
+  /* keep pill descriptions permanently open so the right column's height
+     is stable and never pushes the Focus/Approach row down mid-scroll */
+  .about-pill {
+    grid-template-rows: auto 1fr;
+  }
+
+  .pill-desc {
+    opacity: 1;
+    transform: translateY(0);
+    transition: none;
+  }
 }
 
 @media (max-width: 560px) {
